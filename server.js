@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }))
 //import routes
 const productsRoutes = require('./routes/productsRoutes.js')
 //routes
-app.use('/', productsRoutes)
+app.use('/products', productsRoutes)
 
 app.listen(3000,()=>{
     console.log('rodando na porta 3000')
