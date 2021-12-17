@@ -14,6 +14,11 @@ app.use(express.static('public'))
 //body parser, necessario para se trabalhar com forms
 app.use(express.urlencoded({ extended: true }))
 
+//import routes
+const productsRoutes = require('./routes/productsRoutes.js')
+//routes
+app.use('/', productsRoutes)
+
 app.listen(3000,()=>{
     console.log('rodando na porta 3000')
 })
