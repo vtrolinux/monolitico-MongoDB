@@ -1,4 +1,5 @@
 const connection = require('../db/connection')
+const { ObjectId } = require('mongodb')
 
 class Product {
     constructor(name, price, description, image){
@@ -19,6 +20,10 @@ class Product {
     static getProducts() {
         const products = connection.db().collection('products').find().toArray()  
         return products
+    }
+    static async getProductById(id) {
+        const product = await connection.db().collection('products').findOne({ _id: ObjectId(id) })  
+        return product
     }
 }
 module.exports = Product
