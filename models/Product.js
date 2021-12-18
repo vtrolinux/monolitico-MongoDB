@@ -25,6 +25,10 @@ class Product {
         const product = await connection.db().collection('products').findOne({ _id: ObjectId(id) })  
         return product
     }
+    updateProduct(id) {
+        connection.db().collection('products').updateOne({ _id: ObjectId(id) }, { $set: this }) 
+        return
+      }
     static async removeProductById(id) {
         await connection.db().collection('products').deleteOne({ _id: ObjectId(id) })
         return
